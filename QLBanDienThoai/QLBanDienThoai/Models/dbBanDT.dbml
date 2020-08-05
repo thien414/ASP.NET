@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QLBanDienThoai" Class="dbBanDTDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-9IBFRNL\SQLEXPRESS;Initial Catalog=QLBanDienThoai;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="QLBanDienThoaiConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.DONHANG" Member="DONHANGs">
+    <Type Name="DONHANG">
+      <Column Name="MaDH" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NgayGiao" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="NgayDat" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="ThanhToan" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="MaUser" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaSP" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="TKKHACHHANG_DONHANG" Member="TKKHACHHANG" ThisKey="MaUser" OtherKey="MaUser" Type="TKKHACHHANG" IsForeignKey="true" />
+      <Association Name="SANPHAM_DONHANG" Member="SANPHAM" ThisKey="MaSP" OtherKey="MaSP" Type="SANPHAM" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TKKHACHHANG" Member="TKKHACHHANGs">
+    <Type Name="TKKHACHHANG">
+      <Column Name="MaUser" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenUser" Type="System.String" DbType="NVarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="SDTUser" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NgaySinh" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="MKUser" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="IsDelete" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="TKKHACHHANG_DONHANG" Member="DONHANGs" ThisKey="MaUser" OtherKey="MaUser" Type="DONHANG" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NHASX" Member="NHASXes">
+    <Type Name="NHASX">
+      <Column Name="MaSX" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenSX" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="NHASX_SANPHAM" Member="SANPHAMs" ThisKey="MaSX" OtherKey="MaSX" Type="SANPHAM" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SANPHAM" Member="SANPHAMs">
+    <Type Name="SANPHAM">
+      <Column Name="MaSP" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenSP" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="GiaCu" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="GiaMoi" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="ThongSoSP" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="ImgSP" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="MaSX" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Association Name="SANPHAM_DONHANG" Member="DONHANGs" ThisKey="MaSP" OtherKey="MaSP" Type="DONHANG" />
+      <Association Name="NHASX_SANPHAM" Member="NHASX" ThisKey="MaSX" OtherKey="MaSX" Type="NHASX" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TKADMIN" Member="TKADMINs">
+    <Type Name="TKADMIN">
+      <Column Name="MaTK" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenTK" Type="System.String" DbType="NVarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="MatKhau" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="IsDelete" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

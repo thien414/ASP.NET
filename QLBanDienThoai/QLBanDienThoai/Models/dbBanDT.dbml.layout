@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="dbBanDT">
+  <DataContextMoniker Name="/dbBanDTDataContext" />
+  <nestedChildShapes>
+    <classShape Id="9fcea8da-9434-4e44-9346-57c6219a7654" absoluteBounds="6.25, 1, 2, 1.9631982421875003">
+      <DataClassMoniker Name="/dbBanDTDataContext/DONHANG" />
+      <nestedChildShapes>
+        <elementListCompartment Id="34902804-535a-4f6d-8a1f-9fb0a44292c8" absoluteBounds="6.265, 1.46, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="37c51ce2-0360-400d-b58f-6a992d42df64" absoluteBounds="3.5, 4.875, 2, 2.3478011067708326">
+      <DataClassMoniker Name="/dbBanDTDataContext/TKKHACHHANG" />
+      <nestedChildShapes>
+        <elementListCompartment Id="08d09021-c445-42b0-8d4f-80bf47138766" absoluteBounds="3.515, 5.335, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f23da9d6-7dc2-4d20-83ef-eed9313e5d98" absoluteBounds="0.75, 1.375, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/dbBanDTDataContext/NHASX" />
+      <nestedChildShapes>
+        <elementListCompartment Id="18b360b8-a998-419c-94d4-d3a1d32103db" absoluteBounds="0.765, 1.835, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0f4864b8-44d8-4518-ac94-7b6ad58b53e3" absoluteBounds="3.5, 0.875, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/dbBanDTDataContext/SANPHAM" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ebb98c98-6cfd-46ec-9a76-e04d97fcf91f" absoluteBounds="3.515, 1.335, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d5a5293d-264e-41c1-9a4d-31fefa2e0326" absoluteBounds="6.75, 3.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/dbBanDTDataContext/TKADMIN" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a6a97131-eba7-4d5e-b281-7e6694297d00" absoluteBounds="6.765, 4.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 6.3069482421875); (6.46875 : 6.3069482421875); (6.46875 : 2.9631982421875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/dbBanDTDataContext/TKKHACHHANG/TKKHACHHANG_DONHANG" />
+      <nodes>
+        <classShapeMoniker Id="37c51ce2-0360-400d-b58f-6a992d42df64" />
+        <classShapeMoniker Id="9fcea8da-9434-4e44-9346-57c6219a7654" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 1.98159912109375); (6.25 : 1.98159912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/dbBanDTDataContext/SANPHAM/SANPHAM_DONHANG" />
+      <nodes>
+        <classShapeMoniker Id="0f4864b8-44d8-4518-ac94-7b6ad58b53e3" />
+        <classShapeMoniker Id="9fcea8da-9434-4e44-9346-57c6219a7654" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 1.97199625651042); (3.5 : 1.97199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/dbBanDTDataContext/NHASX/NHASX_SANPHAM" />
+      <nodes>
+        <classShapeMoniker Id="f23da9d6-7dc2-4d20-83ef-eed9313e5d98" />
+        <classShapeMoniker Id="0f4864b8-44d8-4518-ac94-7b6ad58b53e3" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

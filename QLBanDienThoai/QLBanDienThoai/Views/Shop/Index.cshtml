@@ -1,0 +1,11 @@
+﻿@model IEnumerable<QLBanDienThoai.Models.SANPHAM>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutShop.cshtml";
+}
+
+@foreach (var sp in Model)
+{
+    //<li class="active"><a data-toggle="tab" href="@Url.Action("Detail", "Shop", new { id = sp.MaSP })">@sp.t</a></li>
+}
+
