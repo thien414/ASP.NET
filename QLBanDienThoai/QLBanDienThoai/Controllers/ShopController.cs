@@ -19,7 +19,31 @@ namespace QLBanDienThoai.Controllers
         // GET: Shop
         public ActionResult Index()
         {
-            return View(listSP(data.SANPHAMs.Count()));
+            return View(from sp in data.SANPHAMs where sp.MaSX == "AS" select sp);
         }
+        public ActionResult Viewa()
+        {
+            return View();
+        }
+        public ActionResult HangMenu()
+        {
+            return View(from hang in data.NHASXes select hang);
+        }
+
+        public ActionResult SanPhamNew()
+        {
+            return View(from sp in data.SANPHAMs orderby sp.MaSP descending select sp);
+        }
+
+        public ActionResult SptheoHang(string id)
+        {
+            return View(from sp in data.SANPHAMs where sp.MaSX==id select sp);
+        }
+
+        public ActionResult Detail(int id)
+        {
+            return View((from sp in data.SANPHAMs where sp.MaSP == id select sp).Single());
+        }
+
     }
 }

@@ -1,0 +1,29 @@
+﻿@model IEnumerable<DA_ASP.Models.SANPHAM>
+
+@foreach (var sp in Model)
+{
+    <div class="product">
+        <div class="product-img">
+            <img src="~/images/@sp.ImgSP" alt="@sp.TenSP">
+            <div class="product-label">
+                @*<span class="sale">-30%</span>
+                    <span class="new">NEW</span>*@
+            </div>
+        </div>
+        <div class="product-body">
+            <p class="product-category">Category</p>
+            <h3 class="product-name"><a href="@Url.Action("Detail","Shop", new { id = sp.MaSP })">@sp.TenSP</a></h3>
+            <h4 class="product-price">$@sp.GiaMoi <del class="product-old-price">$@sp.GiaCu</del></h4>
+            <div class="product-rating">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+            </div>
+        </div>
+        <div class="add-to-cart">
+            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+        </div>
+    </div>
+}

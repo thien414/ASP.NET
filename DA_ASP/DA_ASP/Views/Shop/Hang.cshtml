@@ -1,0 +1,16 @@
+﻿@model IEnumerable<DA_ASP.Models.NHASX>
+@{
+    int dem = 0;
+}
+@foreach (var item in Model)
+{
+    if (dem == 0)
+    {
+        <li class="active"><a data-toggle="tab active" href="@Url.Action("SpHang","Shop", new { id = item.MaSX })">@item.TenSX</a></li>
+        dem++;
+    }
+    else
+    {
+        <li><a data-toggle="tab active" href="@Url.Action("SpHang","Shop", new { id = item.MaSX })">@item.TenSX</a></li>
+    }
+}

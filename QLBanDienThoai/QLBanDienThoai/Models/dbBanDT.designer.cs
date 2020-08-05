@@ -764,9 +764,9 @@ namespace QLBanDienThoai.Models
 		
 		private string _TenSP;
 		
-		private System.Nullable<decimal> _GiaCu;
+		private System.Nullable<int> _GiaCu;
 		
-		private System.Nullable<decimal> _GiaMoi;
+		private System.Nullable<int> _GiaMoi;
 		
 		private string _ThongSoSP;
 		
@@ -786,9 +786,9 @@ namespace QLBanDienThoai.Models
     partial void OnMaSPChanged();
     partial void OnTenSPChanging(string value);
     partial void OnTenSPChanged();
-    partial void OnGiaCuChanging(System.Nullable<decimal> value);
+    partial void OnGiaCuChanging(System.Nullable<int> value);
     partial void OnGiaCuChanged();
-    partial void OnGiaMoiChanging(System.Nullable<decimal> value);
+    partial void OnGiaMoiChanging(System.Nullable<int> value);
     partial void OnGiaMoiChanged();
     partial void OnThongSoSPChanging(string value);
     partial void OnThongSoSPChanged();
@@ -845,8 +845,8 @@ namespace QLBanDienThoai.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GiaCu", DbType="Money")]
-		public System.Nullable<decimal> GiaCu
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GiaCu", DbType="Int")]
+		public System.Nullable<int> GiaCu
 		{
 			get
 			{
@@ -865,8 +865,8 @@ namespace QLBanDienThoai.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GiaMoi", DbType="Money")]
-		public System.Nullable<decimal> GiaMoi
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GiaMoi", DbType="Int")]
+		public System.Nullable<int> GiaMoi
 		{
 			get
 			{
