@@ -1,0 +1,17 @@
+﻿@model IEnumerable<lolo.Models.NHASX>
+
+@foreach (var item in Model)
+{
+
+    <div class="product">
+        <div class="shop">
+            <div class="shop-img">
+                <img src="./img/shop01.png" alt="">
+            </div>
+            <div class="shop-body">
+                <h3>@item.TenSX</h3>
+                <a href="@Url.Action("SptheoHang", "Shop", new { id = item.MaSX })" class="cta-btn">San Pham <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        </div>
+        }
