@@ -203,11 +203,6 @@
     <Content Include="img\shop03.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Models\dbBanDT.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>dbBanDT.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </Content>
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.woff" />
@@ -216,6 +211,11 @@
     <Content Include="fonts\slick.eot" />
     <Content Include="fonts\slick.ttf" />
     <Content Include="fonts\slick.woff" />
+    <Content Include="Models\dbBanDT.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>dbBanDT.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Models\dbBanDT.dbml.layout">
       <DependentUpon>dbBanDT.dbml</DependentUpon>
     </None>
@@ -256,6 +256,7 @@
     <Content Include="Views\Shop\SanPhamNew.cshtml" />
     <Content Include="Views\Shop\SpFeatured.cshtml" />
     <Content Include="Views\Shop\Detail.cshtml" />
+    <Content Include="Views\Shop\Products.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

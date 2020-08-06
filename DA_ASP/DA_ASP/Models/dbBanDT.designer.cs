@@ -48,7 +48,7 @@ namespace DA_ASP.Models
     #endregion
 		
 		public dbBanDTDataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["QLBanDienThoaiConnectionString"].ConnectionString, mappingSource)
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["QLBanDienThoaiConnectionString1"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -764,9 +764,9 @@ namespace DA_ASP.Models
 		
 		private string _TenSP;
 		
-		private System.Nullable<int> _GiaCu;
+		private System.Nullable<decimal> _GiaCu;
 		
-		private System.Nullable<int> _GiaMoi;
+		private System.Nullable<decimal> _GiaMoi;
 		
 		private string _ThongSoSP;
 		
@@ -786,9 +786,9 @@ namespace DA_ASP.Models
     partial void OnMaSPChanged();
     partial void OnTenSPChanging(string value);
     partial void OnTenSPChanged();
-    partial void OnGiaCuChanging(System.Nullable<int> value);
+    partial void OnGiaCuChanging(System.Nullable<decimal> value);
     partial void OnGiaCuChanged();
-    partial void OnGiaMoiChanging(System.Nullable<int> value);
+    partial void OnGiaMoiChanging(System.Nullable<decimal> value);
     partial void OnGiaMoiChanged();
     partial void OnThongSoSPChanging(string value);
     partial void OnThongSoSPChanged();
@@ -845,8 +845,8 @@ namespace DA_ASP.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GiaCu", DbType="Int")]
-		public System.Nullable<int> GiaCu
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GiaCu", DbType="Money")]
+		public System.Nullable<decimal> GiaCu
 		{
 			get
 			{
@@ -865,8 +865,8 @@ namespace DA_ASP.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GiaMoi", DbType="Int")]
-		public System.Nullable<int> GiaMoi
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GiaMoi", DbType="Money")]
+		public System.Nullable<decimal> GiaMoi
 		{
 			get
 			{

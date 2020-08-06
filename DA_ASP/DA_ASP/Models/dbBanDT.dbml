@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QLBanDienThoai" Class="dbBanDTDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-9IBFRNL\SQLEXPRESS;Initial Catalog=QLBanDienThoai;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="QLBanDienThoaiConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-DFPAEE6;Initial Catalog=QLBanDienThoai;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="QLBanDienThoaiConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.DONHANG" Member="DONHANGs">
     <Type Name="DONHANG">
       <Column Name="MaDH" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -36,8 +36,8 @@
     <Type Name="SANPHAM">
       <Column Name="MaSP" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="TenSP" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="GiaCu" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="GiaMoi" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GiaCu" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="GiaMoi" Type="System.Decimal" DbType="Money" CanBeNull="true" />
       <Column Name="ThongSoSP" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
       <Column Name="ImgSP" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
       <Column Name="MaSX" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
