@@ -1,0 +1,26 @@
+﻿@model IEnumerable<DA_ASP.Models.SANPHAM>
+@{ 
+    int dem = 0;
+}
+@foreach (var item in Model)
+{
+    if(dem < 3)
+    {
+        <div class="product-widget">
+            <div class="product-img">
+                <img src="~/images/@item.ImgSP" alt="@item.TenSP">
+            </div>
+            <div class="product-body">
+                <p class="product-category">Category</p>
+                <h3 class="product-name"><a href="#">@item.TenSP</a></h3>
+                <h4 class="product-price">$@item.GiaMoi <del class="product-old-price">$@item.GiaCu</del></h4>
+            </div>
+        </div>
+        dem++;
+    }
+    if(dem == 3)
+    {
+        break;
+    }
+
+}

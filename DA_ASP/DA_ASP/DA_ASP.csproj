@@ -257,6 +257,10 @@
     <Content Include="Views\Shop\SpFeatured.cshtml" />
     <Content Include="Views\Shop\Detail.cshtml" />
     <Content Include="Views\Shop\Products.cshtml" />
+    <Content Include="Views\Shop\Product.cshtml" />
+    <Content Include="Views\Shop\ProductNew.cshtml" />
+    <Content Include="Views\Shop\Brand.cshtml" />
+    <Content Include="Views\Shop\ProductInBrand.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -46,5 +46,30 @@ namespace DA_ASP.Controllers
         {
             return View((from sp in data.SANPHAMs where sp.MaSP == id select sp).Single());
         }
+
+        public ActionResult Brand()
+        {
+            return PartialView(from h in data.NHASXes select h);
+        }
+
+        public ActionResult Products()
+        {
+            return View();
+        }
+
+        public ActionResult ProductNew()
+        {
+            return PartialView(from sp in data.SANPHAMs orderby sp.MaSP descending select sp);
+        }
+
+        public ActionResult Product()
+        {
+                return View(from sp in data.SANPHAMs select sp);
+        }
+
+        public ActionResult ProductInBrand(string id)
+        {
+            return PartialView(from sp in data.SANPHAMs where sp.MaSX == id select sp);
+        }
     }
 }

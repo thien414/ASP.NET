@@ -1,0 +1,11 @@
+﻿@model IEnumerable<DA_ASP.Models.NHASX>
+@{ 
+    int dem = 1;
+}
+@foreach (var item in Model)
+{
+    <div class="input-checkbox">
+        <a href="@Url.Action("ProductInBrand","Shop", new { id = item.MaSX })">@item.TenSX</a>
+    </div>
+    dem++;
+}
