@@ -23,7 +23,8 @@
             </div>
         </div>
         <div class="add-to-cart">
-            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+            <a class="add-to-cart-btn" href="@Url.Action("AddGioHang","GioHang", new { iMaSP = sp.MaSP, strURL = Request.Url.ToString() })"><i class="fa fa-shopping-cart"></i> add to cart</a>
+            
         </div>
     </div>
 }

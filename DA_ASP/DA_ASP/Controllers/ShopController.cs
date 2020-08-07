@@ -71,5 +71,15 @@ namespace DA_ASP.Controllers
         {
             return PartialView(from sp in data.SANPHAMs where sp.MaSX == id select sp);
         }
+
+        public ActionResult Contact()
+        {
+            return View();
+        }
+
+        public ActionResult About()
+        {
+            return View();
+        }
     }
 }

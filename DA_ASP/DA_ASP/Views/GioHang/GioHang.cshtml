@@ -1,0 +1,35 @@
+﻿@using DA_ASP.Models
+@model List<GioHang>
+@{
+    ViewBag.Title = "GioHang";
+    Layout = "~/Views/Shared/_LayoutShop.cshtml";
+}
+
+<h2 style="text-align:center">THONG TIN GIO HANG</h2>
+<table align="center" border="1">
+    <tr style="text-align:center; font-weight:bold">
+        <td>Ma San Pham</td>
+        <td>Ten San Pham</td>
+        <td>Images</td>
+        <td>So Luong</td>
+        <td>Don gia</td>
+        <td>Thanh Tien</td>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr style="text-align:center; font-weight:bold">
+            <td>@item.iMaSP</td>
+            <td>@item.sTenSP</td>
+            <td><img style="height:150px" src="~/images/@item.sImgSP"</td>
+            <td>@item.iSoLuong</td>
+            <td>@String.Format("{0:0,0}", item.dGiaMoi)</td>
+            <td>@String.Format("{0:0,0}", item.dThanhTien)</td>
+        </tr>
+    }
+<tr style="font-weight:bold; text-align right; color:red">
+    <td colspan="3"> So luong san pham : @ViewBag.Tongsoluong </td>
+    <td colspan="3"> Tong tien : @String.Format("{0:0,0}", ViewBag.Tongtien) VND</td>
+
+</tr>
+</table>
+

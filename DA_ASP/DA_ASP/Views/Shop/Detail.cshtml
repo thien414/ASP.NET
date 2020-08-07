@@ -17,15 +17,15 @@
                         </div>
 
                         <div class="product-preview">
-                            <img src="~/images/@Model.ImgSP" alt="@Model.TenSP">
+                            <img src="~/images/@Model.ImgSP1" alt="@Model.TenSP">
                         </div>
 
                         <div class="product-preview">
-                            <img src="~/images/@Model.ImgSP" alt="@Model.TenSP">
+                            <img src="~/images/@Model.ImgSP2" alt="@Model.TenSP">
                         </div>
 
                         <div class="product-preview">
-                            <img src="~/images/@Model.ImgSP" alt="@Model.TenSP">
+                            <img src="~/images/@Model.ImgSP3" alt="@Model.TenSP">
                         </div>
                     </div>
                 </div>
@@ -38,15 +38,15 @@
                         </div>
 
                         <div class="product-preview">
-                            <img src="~/images/@Model.ImgSP" alt="@Model.TenSP">
+                            <img src="~/images/@Model.ImgSP1" alt="@Model.TenSP">
                         </div>
 
                         <div class="product-preview">
-                            <img src="~/images/@Model.ImgSP" alt="@Model.TenSP">
+                            <img src="~/images/@Model.ImgSP2" alt="@Model.TenSP">
                         </div>
 
                         <div class="product-preview">
-                            <img src="~/images/@Model.ImgSP" alt="@Model.TenSP">
+                            <img src="~/images/@Model.ImgSP3" alt="@Model.TenSP">
                         </div>
                     </div>
                 </div>
@@ -69,7 +69,7 @@
                             <h3 class="product-price">$@Model.GiaMoi <del class="product-old-price">$@Model.GiaCu</del></h3>
                             <span class="product-available">In Stock</span>
                         </div>
-                        <p>@Model.ThongSoSP</p>
+                        <p>@Html.Raw(Model.ThongSoSP)</p>
                         <div class="product-options">
                             <label>
                                 Size
@@ -94,7 +94,7 @@
                                     <span class="qty-down">-</span>
                                 </div>
                             </div>
-                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                            <a class="button add-to-cart-btn" href="@Url.Action("AddGioHang","GioHang", new { iMaSP = Model.MaSP, strURL = Request.Url.ToString() })"><i class="fa fa-shopping-cart"></i> add to cart</a>
                         </div>
 
 
@@ -131,7 +131,7 @@
                             <div id="tab1" class="tab-pane fade in active">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <p>@Model.ThongSoSP</p> </div>
+                                        <p>@Html.Raw(Model.ThongSoSP)</p> </div>
                                 </div>
                             </div>
                             <!-- /tab1  -->
@@ -139,7 +139,7 @@
                             <div id="tab2" class="tab-pane fade in">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <p>@Model.ThongSoSP</p> </div>
+                                        <p>@Html.Raw(Model.ThongSoSP)</p> </div>
                                 </div>
                             </div>
                             <!-- /tab2  -->

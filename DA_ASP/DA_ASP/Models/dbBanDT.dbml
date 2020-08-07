@@ -8,20 +8,21 @@
       <Column Name="ThanhToan" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
       <Column Name="MaUser" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="MaSP" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaTK" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="TKKHACHHANG_DONHANG" Member="TKKHACHHANG" ThisKey="MaUser" OtherKey="MaUser" Type="TKKHACHHANG" IsForeignKey="true" />
       <Association Name="SANPHAM_DONHANG" Member="SANPHAM" ThisKey="MaSP" OtherKey="MaSP" Type="SANPHAM" IsForeignKey="true" />
+      <Association Name="TKADMIN_DONHANG" Member="TKADMIN" ThisKey="MaTK" OtherKey="MaTK" Type="TKADMIN" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.TKKHACHHANG" Member="TKKHACHHANGs">
     <Type Name="TKKHACHHANG">
       <Column Name="MaUser" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="TenUser" Type="System.String" DbType="NVarChar(40) NOT NULL" CanBeNull="false" />
-      <Column Name="SDTUser" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SDTUser" Type="System.String" DbType="Char(20) NOT NULL" CanBeNull="false" />
       <Column Name="NgaySinh" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
       <Column Name="MKUser" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
       <Column Name="Email" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="DiaChi" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
-      <Column Name="IsDelete" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Association Name="TKKHACHHANG_DONHANG" Member="DONHANGs" ThisKey="MaUser" OtherKey="MaUser" Type="DONHANG" />
     </Type>
   </Table>
@@ -39,7 +40,11 @@
       <Column Name="GiaCu" Type="System.Decimal" DbType="Money" CanBeNull="true" />
       <Column Name="GiaMoi" Type="System.Decimal" DbType="Money" CanBeNull="true" />
       <Column Name="ThongSoSP" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="ChiTietSP" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
       <Column Name="ImgSP" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="ImgSP1" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="ImgSP2" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="ImgSP3" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
       <Column Name="MaSX" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
       <Association Name="SANPHAM_DONHANG" Member="DONHANGs" ThisKey="MaSP" OtherKey="MaSP" Type="DONHANG" />
       <Association Name="NHASX_SANPHAM" Member="NHASX" ThisKey="MaSX" OtherKey="MaSX" Type="NHASX" IsForeignKey="true" />
@@ -51,6 +56,7 @@
       <Column Name="TenTK" Type="System.String" DbType="NVarChar(40) NOT NULL" CanBeNull="false" />
       <Column Name="MatKhau" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
       <Column Name="IsDelete" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="TKADMIN_DONHANG" Member="DONHANGs" ThisKey="MaTK" OtherKey="MaTK" Type="DONHANG" />
     </Type>
   </Table>
 </Database>

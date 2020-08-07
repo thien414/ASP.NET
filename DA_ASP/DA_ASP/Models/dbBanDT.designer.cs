@@ -136,9 +136,13 @@ namespace DA_ASP.Models
 		
 		private System.Nullable<int> _MaSP;
 		
+		private System.Nullable<int> _MaTK;
+		
 		private EntityRef<TKKHACHHANG> _TKKHACHHANG;
 		
 		private EntityRef<SANPHAM> _SANPHAM;
+		
+		private EntityRef<TKADMIN> _TKADMIN;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -156,12 +160,15 @@ namespace DA_ASP.Models
     partial void OnMaUserChanged();
     partial void OnMaSPChanging(System.Nullable<int> value);
     partial void OnMaSPChanged();
+    partial void OnMaTKChanging(System.Nullable<int> value);
+    partial void OnMaTKChanged();
     #endregion
 		
 		public DONHANG()
 		{
 			this._TKKHACHHANG = default(EntityRef<TKKHACHHANG>);
 			this._SANPHAM = default(EntityRef<SANPHAM>);
+			this._TKADMIN = default(EntityRef<TKADMIN>);
 			OnCreated();
 		}
 		
@@ -293,6 +300,30 @@ namespace DA_ASP.Models
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaTK", DbType="Int")]
+		public System.Nullable<int> MaTK
+		{
+			get
+			{
+				return this._MaTK;
+			}
+			set
+			{
+				if ((this._MaTK != value))
+				{
+					if (this._TKADMIN.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMaTKChanging(value);
+					this.SendPropertyChanging();
+					this._MaTK = value;
+					this.SendPropertyChanged("MaTK");
+					this.OnMaTKChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TKKHACHHANG_DONHANG", Storage="_TKKHACHHANG", ThisKey="MaUser", OtherKey="MaUser", IsForeignKey=true)]
 		public TKKHACHHANG TKKHACHHANG
 		{
@@ -361,6 +392,40 @@ namespace DA_ASP.Models
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TKADMIN_DONHANG", Storage="_TKADMIN", ThisKey="MaTK", OtherKey="MaTK", IsForeignKey=true)]
+		public TKADMIN TKADMIN
+		{
+			get
+			{
+				return this._TKADMIN.Entity;
+			}
+			set
+			{
+				TKADMIN previousValue = this._TKADMIN.Entity;
+				if (((previousValue != value) 
+							|| (this._TKADMIN.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._TKADMIN.Entity = null;
+						previousValue.DONHANGs.Remove(this);
+					}
+					this._TKADMIN.Entity = value;
+					if ((value != null))
+					{
+						value.DONHANGs.Add(this);
+						this._MaTK = value.MaTK;
+					}
+					else
+					{
+						this._MaTK = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("TKADMIN");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -392,7 +457,7 @@ namespace DA_ASP.Models
 		
 		private string _TenUser;
 		
-		private int _SDTUser;
+		private string _SDTUser;
 		
 		private string _NgaySinh;
 		
@@ -401,8 +466,6 @@ namespace DA_ASP.Models
 		private string _Email;
 		
 		private string _DiaChi;
-		
-		private System.Nullable<bool> _IsDelete;
 		
 		private EntitySet<DONHANG> _DONHANGs;
 		
@@ -414,7 +477,7 @@ namespace DA_ASP.Models
     partial void OnMaUserChanged();
     partial void OnTenUserChanging(string value);
     partial void OnTenUserChanged();
-    partial void OnSDTUserChanging(int value);
+    partial void OnSDTUserChanging(string value);
     partial void OnSDTUserChanged();
     partial void OnNgaySinhChanging(string value);
     partial void OnNgaySinhChanged();
@@ -424,8 +487,6 @@ namespace DA_ASP.Models
     partial void OnEmailChanged();
     partial void OnDiaChiChanging(string value);
     partial void OnDiaChiChanged();
-    partial void OnIsDeleteChanging(System.Nullable<bool> value);
-    partial void OnIsDeleteChanged();
     #endregion
 		
 		public TKKHACHHANG()
@@ -474,8 +535,8 @@ namespace DA_ASP.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SDTUser", DbType="Int NOT NULL")]
-		public int SDTUser
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SDTUser", DbType="Char(20) NOT NULL", CanBeNull=false)]
+		public string SDTUser
 		{
 			get
 			{
@@ -570,26 +631,6 @@ namespace DA_ASP.Models
 					this._DiaChi = value;
 					this.SendPropertyChanged("DiaChi");
 					this.OnDiaChiChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsDelete", DbType="Bit")]
-		public System.Nullable<bool> IsDelete
-		{
-			get
-			{
-				return this._IsDelete;
-			}
-			set
-			{
-				if ((this._IsDelete != value))
-				{
-					this.OnIsDeleteChanging(value);
-					this.SendPropertyChanging();
-					this._IsDelete = value;
-					this.SendPropertyChanged("IsDelete");
-					this.OnIsDeleteChanged();
 				}
 			}
 		}
@@ -770,7 +811,15 @@ namespace DA_ASP.Models
 		
 		private string _ThongSoSP;
 		
+		private string _ChiTietSP;
+		
 		private string _ImgSP;
+		
+		private string _ImgSP1;
+		
+		private string _ImgSP2;
+		
+		private string _ImgSP3;
 		
 		private string _MaSX;
 		
@@ -792,8 +841,16 @@ namespace DA_ASP.Models
     partial void OnGiaMoiChanged();
     partial void OnThongSoSPChanging(string value);
     partial void OnThongSoSPChanged();
+    partial void OnChiTietSPChanging(string value);
+    partial void OnChiTietSPChanged();
     partial void OnImgSPChanging(string value);
     partial void OnImgSPChanged();
+    partial void OnImgSP1Changing(string value);
+    partial void OnImgSP1Changed();
+    partial void OnImgSP2Changing(string value);
+    partial void OnImgSP2Changed();
+    partial void OnImgSP3Changing(string value);
+    partial void OnImgSP3Changed();
     partial void OnMaSXChanging(string value);
     partial void OnMaSXChanged();
     #endregion
@@ -905,6 +962,26 @@ namespace DA_ASP.Models
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ChiTietSP", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string ChiTietSP
+		{
+			get
+			{
+				return this._ChiTietSP;
+			}
+			set
+			{
+				if ((this._ChiTietSP != value))
+				{
+					this.OnChiTietSPChanging(value);
+					this.SendPropertyChanging();
+					this._ChiTietSP = value;
+					this.SendPropertyChanged("ChiTietSP");
+					this.OnChiTietSPChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImgSP", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
 		public string ImgSP
 		{
@@ -921,6 +998,66 @@ namespace DA_ASP.Models
 					this._ImgSP = value;
 					this.SendPropertyChanged("ImgSP");
 					this.OnImgSPChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImgSP1", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string ImgSP1
+		{
+			get
+			{
+				return this._ImgSP1;
+			}
+			set
+			{
+				if ((this._ImgSP1 != value))
+				{
+					this.OnImgSP1Changing(value);
+					this.SendPropertyChanging();
+					this._ImgSP1 = value;
+					this.SendPropertyChanged("ImgSP1");
+					this.OnImgSP1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImgSP2", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string ImgSP2
+		{
+			get
+			{
+				return this._ImgSP2;
+			}
+			set
+			{
+				if ((this._ImgSP2 != value))
+				{
+					this.OnImgSP2Changing(value);
+					this.SendPropertyChanging();
+					this._ImgSP2 = value;
+					this.SendPropertyChanged("ImgSP2");
+					this.OnImgSP2Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImgSP3", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string ImgSP3
+		{
+			get
+			{
+				return this._ImgSP3;
+			}
+			set
+			{
+				if ((this._ImgSP3 != value))
+				{
+					this.OnImgSP3Changing(value);
+					this.SendPropertyChanging();
+					this._ImgSP3 = value;
+					this.SendPropertyChanged("ImgSP3");
+					this.OnImgSP3Changed();
 				}
 			}
 		}
@@ -1043,6 +1180,8 @@ namespace DA_ASP.Models
 		
 		private System.Nullable<bool> _IsDelete;
 		
+		private EntitySet<DONHANG> _DONHANGs;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1059,6 +1198,7 @@ namespace DA_ASP.Models
 		
 		public TKADMIN()
 		{
+			this._DONHANGs = new EntitySet<DONHANG>(new Action<DONHANG>(this.attach_DONHANGs), new Action<DONHANG>(this.detach_DONHANGs));
 			OnCreated();
 		}
 		
@@ -1142,6 +1282,19 @@ namespace DA_ASP.Models
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TKADMIN_DONHANG", Storage="_DONHANGs", ThisKey="MaTK", OtherKey="MaTK")]
+		public EntitySet<DONHANG> DONHANGs
+		{
+			get
+			{
+				return this._DONHANGs;
+			}
+			set
+			{
+				this._DONHANGs.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -1160,6 +1313,18 @@ namespace DA_ASP.Models
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_DONHANGs(DONHANG entity)
+		{
+			this.SendPropertyChanging();
+			entity.TKADMIN = this;
+		}
+		
+		private void detach_DONHANGs(DONHANG entity)
+		{
+			this.SendPropertyChanging();
+			entity.TKADMIN = null;
 		}
 	}
 }
